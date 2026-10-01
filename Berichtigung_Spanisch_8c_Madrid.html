@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Berichtigung Spanisch – Madrid</title>
+<style>
+:root{
+  --bg:#f5f7f8;
+  --card:#ffffff;
+  --text:#1f2933;
+  --muted:#5f6b76;
+  --accent:#2f6f73;
+  --accent-soft:#e7f1f1;
+  --ok:#236b3b;
+  --ok-bg:#eaf6ee;
+  --warn:#8a5b00;
+  --warn-bg:#fff6df;
+  --border:#d9e0e4;
+  --danger:#9f2d2d;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.55;
+}
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(245,247,248,.96);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(8px);
+}
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  justify-content:space-between;
+}
+.progress-wrap{min-width:260px}
+.progress-text{font-size:.9rem;color:var(--muted);margin-bottom:6px}
+.progress-bar{
+  height:10px;background:#dde5e8;border-radius:999px;overflow:hidden
+}
+.progress-fill{
+  height:100%;width:0;background:var(--accent);transition:width .2s ease
+}
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:28px 20px 60px;
+}
+.hero{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px;
+  margin-bottom:24px;
+}
+.hero h1{margin:0 0 10px;font-size:clamp(1.8rem,4vw,2.7rem)}
+.hero p{margin:.4rem 0;color:var(--muted)}
+.section{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  margin:22px 0;
+}
+.section h2{margin-top:0}
+.rule{
+  background:var(--accent-soft);
+  border-left:4px solid var(--accent);
+  padding:14px 16px;
+  border-radius:8px;
+  margin:12px 0 20px;
+}
+.item{
+  border-top:1px solid var(--border);
+  padding:18px 0;
+}
+.item:first-of-type{border-top:none}
+.item p{margin:.35rem 0}
+label{display:block;margin:.35rem 0}
+select,input[type="text"],textarea{
+  width:100%;
+  max-width:720px;
+  padding:10px 12px;
+  border:1px solid #bfc9cf;
+  border-radius:8px;
+  font:inherit;
+  background:white;
+}
+textarea{min-height:90px;resize:vertical}
+button{
+  border:0;
+  border-radius:9px;
+  padding:10px 14px;
+  font:inherit;
+  cursor:pointer;
+  margin-top:10px;
+}
+button.primary{background:var(--accent);color:white}
+button.secondary{background:#e8edf0;color:var(--text)}
+button:focus,select:focus,input:focus,textarea:focus{
+  outline:3px solid rgba(47,111,115,.25);
+  outline-offset:2px;
+}
+.feedback{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:8px;
+  display:none;
+}
+.feedback.ok{display:block;background:var(--ok-bg);color:var(--ok)}
+.feedback.warn{display:block;background:var(--warn-bg);color:var(--warn)}
+.feedback.info{display:block;background:#eef3f5;color:var(--text)}
+.options{
+  display:grid;
+  gap:8px;
+  margin-top:8px;
+}
+.option{
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:9px;
+}
+.transfer{
+  margin-top:18px;
+  padding:16px;
+  background:#f7f9fa;
+  border:1px dashed #aebcc3;
+  border-radius:10px;
+}
+.transfer strong{display:block;margin-bottom:4px}
+.match-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.drag-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:10px 0;
+}
+.drag-word{
+  border:1px solid var(--border);
+  background:#f7f9fa;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:grab;
+}
+.dropzone{
+  min-height:48px;
+  border:2px dashed #b9c6cc;
+  border-radius:9px;
+  padding:8px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  background:#fbfcfd;
+}
+.checklist label{display:flex;gap:8px;align-items:flex-start}
+.small{font-size:.92rem;color:var(--muted)}
+.solution-bank{
+  display:none;
+  margin-top:24px;
+  padding:18px;
+  border-top:2px solid var(--text);
+}
+@media(max-width:760px){
+  .header-inner{align-items:flex-start;flex-direction:column}
+  .progress-wrap{width:100%;min-width:0}
+  .match-grid{grid-template-columns:1fr}
+  .section,.hero{padding:18px}
+}
+@media print{
+  header{position:static;background:white}
+  .progress-wrap,button,.interactive-only{display:none!important}
+  body{background:white}
+  main{max-width:none;padding:0}
+  .section,.hero{border:none;border-radius:0;padding:0;margin:18px 0}
+  select,input,textarea{display:none}
+  .feedback{display:none!important}
+  .solution-bank{display:block}
+  .item{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div><strong>Berichtigung Spanisch – Madrid</strong></div>
+    <div class="progress-wrap" aria-live="polite">
+      <div class="progress-text"><span id="doneCount">0</span> von <span id="totalCount">0</span> Übungen bearbeitet</div>
+      <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <h1>Üben, prüfen, verbessern</h1>
+  <p>Diese Übungen sind aus den häufigsten Fehlern der ganzen Klasse entstanden. Du arbeitest zuerst an typischen Beispielen und gehst danach immer zurück zu deinem eigenen Text.</p>
+  <p>Es gibt keine Punkte und keine Note. Nutze die Rückmeldungen, um selbst zu erkennen, was schon sicher ist und was du noch verbessern musst.</p>
+</section>
+
+<section class="section" id="s1">
+  <h2>1. Verbformen und Satzbau</h2>
+  <div class="rule">Überlege zuerst: <strong>Wer macht etwas?</strong> Dann wählst du die passende Verbform. Ein kurzer, klarer Satz ist besser als ein langer Satz mit mehreren falsch verbundenen Verben.</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> Welche Form ist richtig?</p>
+    <div class="options">
+      <label><input type="radio" name="v1" value="a"> Real Madrid jugar en el Bernabéu.</label>
+      <label><input type="radio" name="v1" value="b"> Real Madrid juega en el Bernabéu.</label>
+      <label><input type="radio" name="v1" value="c"> Real Madrid juegas en el Bernabéu.</label>
+      <label><input type="radio" name="v1" value="d"> Real Madrid jugamos en el Bernabéu.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','„Real Madrid“ ist 3. Person Singular. Deshalb heißt es „juega“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> Korrigiere: <em>Yo gustar el Retiro.</em></p>
+    <input type="text" aria-label="Korrektur Satz 2" data-answer="Me gusta el Retiro.|Me gusta el parque del Retiro.">
+    <button class="primary" onclick="checkText(this,'Mit „gustar“ heißt es hier „Me gusta …“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> Setze die passende Verbform ein: Álvaro y sus amigos ___ Madrid.</p>
+    <select data-answer="visitan">
+      <option value="">Bitte wählen</option>
+      <option>visita</option><option>visitan</option><option>visitas</option><option>visitamos</option>
+    </select>
+    <button class="primary" onclick="checkSelect(this,'Das Subjekt ist Plural: „Álvaro y sus amigos visitan …“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Ordne die Satzteile.</p>
+    <div class="drag-list" data-drag-source>
+      <span class="drag-word" draggable="true">en Madrid</span>
+      <span class="drag-word" draggable="true">visita</span>
+      <span class="drag-word" draggable="true">Álvaro</span>
+      <span class="drag-word" draggable="true">dos lugares</span>
+    </div>
+    <div class="dropzone" data-dropzone data-answer="Álvaro visita dos lugares en Madrid"></div>
+    <button class="primary" onclick="checkDrag(this,'Grundmuster: Subjekt + Verb + Ergänzungen.')">Prüfen</button>
+    <button class="secondary" onclick="resetDrag(this)">Zurücksetzen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Welche Variante ist am klarsten?</p>
+    <div class="options">
+      <label><input type="radio" name="v5" value="a"> Madrid tengo muchos lugares.</label>
+      <label><input type="radio" name="v5" value="b"> En Madrid hay muchos lugares interesantes.</label>
+      <label><input type="radio" name="v5" value="c"> Madrid hay tengo lugares.</label>
+      <label><input type="radio" name="v5" value="d"> Hay Madrid lugares tiene.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','„En Madrid hay …“ ist hier eine einfache und sichere Struktur.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>6.</strong> Korrigiere: <em>El parque ser tranquilo.</em></p>
+    <input type="text" data-answer="El parque es tranquilo.|El Parque del Retiro es tranquilo.">
+    <button class="primary" onclick="checkText(this,'„El parque“ ist 3. Person Singular: „es“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Suche einen Satz, bei dem du bei der Verbform unsicher warst, und schreibe ihn neu.
+    <div class="small">Erfolgskriterium: Subjekt und Verbform passen zusammen und der Satz ist ohne zusätzliche Erklärung verständlich.</div>
+  </div>
+</section>
+
+<section class="section" id="s2">
+  <h2>2. poder / se puede + Infinitiv</h2>
+  <div class="rule">Nach einer Form von <strong>poder</strong> steht das zweite Verb im <strong>Infinitiv</strong>: <em>se puede ver</em>, <em>podéis comprar</em>.</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> En el Retiro se puede ___ un picnic.</p>
+    <select data-answer="hacer"><option value="">Bitte wählen</option><option>hacer</option><option>hacemos</option><option>hace</option><option>hacéis</option></select>
+    <button class="primary" onclick="checkSelect(this,'Nach „se puede“ steht der Infinitiv: „hacer“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> En el Bernabéu podéis ___ un partido.</p>
+    <select data-answer="ver"><option value="">Bitte wählen</option><option>ver</option><option>veis</option><option>vemos</option><option>ve</option></select>
+    <button class="primary" onclick="checkSelect(this,'Nach „podéis“ steht „ver“ im Infinitiv.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> Korrigiere: <em>Pueden veo un partido de fútbol.</em></p>
+    <input type="text" data-answer="Pueden ver un partido de fútbol.">
+    <button class="primary" onclick="checkText(this,'Nur „pueden“ wird konjugiert; „ver“ bleibt im Infinitiv.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Korrigiere: <em>Se puede jugamos al fútbol.</em></p>
+    <input type="text" data-answer="Se puede jugar al fútbol.">
+    <button class="primary" onclick="checkText(this,'Nach „se puede“ folgt „jugar“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Welche Form passt zu „tú“?</p>
+    <div class="options">
+      <label><input type="radio" name="p5" value="a"> puedo</label>
+      <label><input type="radio" name="p5" value="b"> puedes</label>
+      <label><input type="radio" name="p5" value="c"> puede</label>
+      <label><input type="radio" name="p5" value="d"> podéis</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Für „tú“ heißt es „puedes“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>6.</strong> Welche Variante ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="p6" value="a"> Podéis compráis recuerdos.</label>
+      <label><input type="radio" name="p6" value="b"> Podéis comprar recuerdos.</label>
+      <label><input type="radio" name="p6" value="c"> Podéis comprado recuerdos.</label>
+      <label><input type="radio" name="p6" value="d"> Podéis compra recuerdos.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Nach „podéis“ folgt der Infinitiv „comprar“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Markiere alle Stellen mit <em>puede, puedes, podéis, pueden</em> oder <em>se puede</em>.
+    <div class="small">Erfolgskriterium: Nach der Form von <em>poder</em> steht immer ein Infinitiv.</div>
+  </div>
+</section>
+
+<section class="section" id="s3">
+  <h2>3. Artikel – Nomen – Adjektiv</h2>
+  <div class="rule">Artikel, Nomen und Adjektiv müssen zusammenpassen. Kontrolliere <strong>männlich/weiblich</strong> und <strong>Singular/Plural</strong>.</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> Welche Form ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="a1" value="a"> la estadio famosa</label>
+      <label><input type="radio" name="a1" value="b"> el estadio famoso</label>
+      <label><input type="radio" name="a1" value="c"> el estadio famosa</label>
+      <label><input type="radio" name="a1" value="d"> la estadio famoso</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','„estadio“ ist maskulin: el estadio famoso.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> la plaza ___</p>
+    <select data-answer="bonita"><option value="">Bitte wählen</option><option>bonito</option><option>bonita</option><option>bonitos</option><option>bonitas</option></select>
+    <button class="primary" onclick="checkSelect(this,'„plaza“ ist feminin Singular: bonita.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> los lugares ___</p>
+    <select data-answer="interesantes"><option value="">Bitte wählen</option><option>interesante</option><option>interesantes</option><option>interesanta</option><option>interesantos</option></select>
+    <button class="primary" onclick="checkSelect(this,'Plural: los lugares interesantes.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Korrigiere: <em>muchas lugares interesante</em></p>
+    <input type="text" data-answer="muchos lugares interesantes">
+    <button class="primary" onclick="checkText(this,'„lugares“ ist maskulin Plural: muchos lugares interesantes.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Korrigiere: <em>un barca bonita</em></p>
+    <input type="text" data-answer="una barca bonita">
+    <button class="primary" onclick="checkText(this,'„barca“ ist feminin: una barca bonita.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>6.</strong> Welche Form ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="a6" value="a"> mi lugar favorita</label>
+      <label><input type="radio" name="a6" value="b"> mi lugar favorito</label>
+      <label><input type="radio" name="a6" value="c"> mis lugar favorito</label>
+      <label><input type="radio" name="a6" value="d"> mi lugares favorito</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','„lugar“ ist maskulin Singular: mi lugar favorito.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Kontrolliere drei Nomen mit ihren Adjektiven.
+    <div class="small">Erfolgskriterium: Artikel, Nomen und Adjektiv stimmen in Genus und Numerus überein.</div>
+  </div>
+</section>
+
+<section class="section" id="s4">
+  <h2>4. Vergleiche</h2>
+  <div class="rule">Nutze die vollständigen Muster: <strong>más + Adjektiv + que</strong>, <strong>menos + Adjektiv + que</strong>, <strong>tan + Adjektiv + como</strong>.</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> El Retiro es ___ tranquilo ___ el Bernabéu.</p>
+    <div class="match-grid">
+      <select data-answer="más"><option value="">1. Lücke</option><option>más</option><option>tan</option><option>como</option><option>que</option></select>
+      <select data-answer="que"><option value="">2. Lücke</option><option>más</option><option>tan</option><option>como</option><option>que</option></select>
+    </div>
+    <button class="primary" onclick="checkMultiSelect(this,'más|que','Das Muster lautet „más + Adjektiv + que“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> El Rastro es ___ ruidoso ___ el Bernabéu.</p>
+    <div class="match-grid">
+      <select data-answer="tan"><option value="">1. Lücke</option><option>más</option><option>tan</option><option>menos</option></select>
+      <select data-answer="como"><option value="">2. Lücke</option><option>que</option><option>como</option><option>de</option></select>
+    </div>
+    <button class="primary" onclick="checkMultiSelect(this,'tan|como','Gleichheit drückst du mit „tan … como“ aus.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> Korrigiere: <em>El Bernabéu es más interesante de el Rastro.</em></p>
+    <input type="text" data-answer="El Bernabéu es más interesante que el Rastro.">
+    <button class="primary" onclick="checkText(this,'Beim Vergleich mit „más“ steht „que“, nicht „de“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Welche Variante ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="c4" value="a"> El parque es menos ruidoso como el estadio.</label>
+      <label><input type="radio" name="c4" value="b"> El parque es menos ruidoso que el estadio.</label>
+      <label><input type="radio" name="c4" value="c"> El parque es menos que ruidoso el estadio.</label>
+      <label><input type="radio" name="c4" value="d"> El parque menos ruidoso de el estadio.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Auch bei „menos“ lautet das Muster „menos + Adjektiv + que“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Bilde einen Vergleich mit <em>grande</em>: Bernabéu / Rastro</p>
+    <textarea data-solution="El Bernabéu es más grande que el Rastro."></textarea>
+    <button class="secondary" onclick="showSolution(this,'Eine mögliche Lösung: El Bernabéu es más grande que el Rastro. Wichtig ist das vollständige Muster.')">Lösung zeigen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>6.</strong> Bilde einen Vergleich mit <em>tranquilo</em>: Retiro / Bernabéu</p>
+    <textarea data-solution="El Retiro es más tranquilo que el Bernabéu."></textarea>
+    <button class="secondary" onclick="showSolution(this,'Eine mögliche Lösung: El Retiro es más tranquilo que el Bernabéu.')">Lösung zeigen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Suche deinen Vergleich und überprüfe ihn.
+    <div class="small">Erfolgskriterium: Du vergleichst genau zwei Orte und verwendest vollständig „más/menos … que“ oder „tan … como“.</div>
+  </div>
+</section>
+
+<section class="section" id="s5">
+  <h2>5. Grundwortschatz und Orthografie</h2>
+  <div class="rule">Kontrolliere besonders Wörter, die du häufig brauchst. Akzente sind wichtig, aber zuerst muss die Grundform des Wortes sicher sein.</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> Welche Schreibweise ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="o1" value="a"> estadíon</label>
+      <label><input type="radio" name="o1" value="b"> estadio</label>
+      <label><input type="radio" name="o1" value="c"> estadeo</label>
+      <label><input type="radio" name="o1" value="d"> estadion</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Richtig ist „estadio“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> Welche Schreibweise ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="o2" value="a"> interessante</label>
+      <label><input type="radio" name="o2" value="b"> interesante</label>
+      <label><input type="radio" name="o2" value="c"> interesannte</label>
+      <label><input type="radio" name="o2" value="d"> intresante</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Richtig ist „interesante“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> Schreibe das Wort korrekt: <em>fotbal</em></p>
+    <input type="text" data-answer="fútbol">
+    <button class="primary" onclick="checkText(this,'Richtig ist „fútbol“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Schreibe das Wort korrekt: <em>Rasto</em></p>
+    <input type="text" data-answer="Rastro|rastro">
+    <button class="primary" onclick="checkText(this,'Der Ort heißt „El Rastro“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Welche Schreibweise ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="o5" value="a"> famosso</label>
+      <label><input type="radio" name="o5" value="b"> famoso</label>
+      <label><input type="radio" name="o5" value="c"> famóso</label>
+      <label><input type="radio" name="o5" value="d"> famozo</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Richtig ist „famoso“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>6.</strong> Schreibe einen Satz mit <em>Bernabéu</em> und <em>interesante</em>.</p>
+    <textarea></textarea>
+    <button class="secondary" onclick="showSolution(this,'Eine mögliche Lösung: El Bernabéu es interesante. Wichtig ist die korrekte Schreibweise der Wörter.')">Lösung zeigen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Kontrolliere drei Wörter, die du mehrfach benutzt hast.
+    <div class="small">Erfolgskriterium: Die Wörter sind in derselben korrekten Form geschrieben.</div>
+  </div>
+</section>
+
+<section class="section" id="s6">
+  <h2>6. gustar, preferir und Meinung ausdrücken</h2>
+  <div class="rule">Für deine Meinung helfen dir sichere Muster: <em>Me gusta … porque …</em> und <em>Prefiero … porque …</em>.</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> Welche Form ist korrekt?</p>
+    <div class="options">
+      <label><input type="radio" name="g1" value="a"> Yo me gusta el Retiro.</label>
+      <label><input type="radio" name="g1" value="b"> Me gusta el Retiro.</label>
+      <label><input type="radio" name="g1" value="c"> Me gusto el Retiro.</label>
+      <label><input type="radio" name="g1" value="d"> Yo gusta el Retiro.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Für „mir gefällt“ heißt es „Me gusta …“.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> Prefiero el Retiro ___ es tranquilo.</p>
+    <select data-answer="porque"><option value="">Bitte wählen</option><option>pero</option><option>porque</option><option>también</option><option>y</option></select>
+    <button class="primary" onclick="checkSelect(this,'Mit „porque“ begründest du deine Präferenz.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> Korrigiere: <em>Me gustar el estadio porque es grande.</em></p>
+    <input type="text" data-answer="Me gusta el estadio porque es grande.">
+    <button class="primary" onclick="checkText(this,'„Me gusta“ ist die passende Struktur.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Welche Aussage drückt eine Präferenz aus?</p>
+    <div class="options">
+      <label><input type="radio" name="g4" value="a"> El Retiro es un parque.</label>
+      <label><input type="radio" name="g4" value="b"> En el Retiro se puede descansar.</label>
+      <label><input type="radio" name="g4" value="c"> Prefiero el Retiro porque es tranquilo.</label>
+      <label><input type="radio" name="g4" value="d"> Álvaro visita Madrid.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'c','„Prefiero …“ zeigt eindeutig deine persönliche Vorliebe.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Schreibe einen Satz: Welchen Ort bevorzugst du und warum?</p>
+    <textarea></textarea>
+    <button class="secondary" onclick="showSolution(this,'Muster: Prefiero + Ort + porque + Grund. Beispiel: Prefiero el Retiro porque es tranquilo.')">Lösung zeigen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Suche deine persönliche Meinung.
+    <div class="small">Erfolgskriterium: Es ist eindeutig erkennbar, welchen Ort du bevorzugst und warum.</div>
+  </div>
+</section>
+
+<section class="section" id="s7">
+  <h2>7. Inhalt: Ist die Aufgabe vollständig?</h2>
+  <div class="rule">Eine gute E-Mail beantwortet die ganze Aufgabe. Kontrolliere: <strong>zwei Orte – Aktivitäten – Vergleich – Präferenz – Empfehlung</strong>.</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> Lies: <em>El Retiro es bonito y tranquilo. El Bernabéu es grande. Prefiero el Retiro.</em></p>
+    <p>Was fehlt besonders?</p>
+    <div class="options">
+      <label><input type="radio" name="i1" value="a"> zwei Orte</label>
+      <label><input type="radio" name="i1" value="b"> Aktivitäten und ein direkter Vergleich</label>
+      <label><input type="radio" name="i1" value="c"> eine Präferenz</label>
+      <label><input type="radio" name="i1" value="d"> ein Ort in Madrid</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Die zwei Orte und die Präferenz sind da. Es fehlen konkrete Aktivitäten und ein direkter Vergleich.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> Welche Checkliste passt zur Aufgabe?</p>
+    <div class="options">
+      <label><input type="radio" name="i2" value="a"> Ort – Wetter – Familie – Essen</label>
+      <label><input type="radio" name="i2" value="b"> zwei Orte – Aktivitäten – Vergleich – Präferenz – Empfehlung</label>
+      <label><input type="radio" name="i2" value="c"> drei Orte – Stadtplan – Uhrzeit – Foto</label>
+      <label><input type="radio" name="i2" value="d"> Begrüßung – Fußball – Schluss</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Diese Punkte decken die Aufgabe vollständig ab.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> Welche Information passt besser zur Situation von Álvaro?</p>
+    <div class="options">
+      <label><input type="radio" name="i3" value="a"> Allí puedo visitar a mi amigo.</label>
+      <label><input type="radio" name="i3" value="b"> Allí podéis comprar recuerdos.</label>
+      <label><input type="radio" name="i3" value="c"> Mi familia come churros allí.</label>
+      <label><input type="radio" name="i3" value="d"> Mi hermano vive cerca.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','Die Information hilft Álvaro und seinen Freunden direkt bei ihrer Planung.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Welche Struktur gibt einen klaren roten Faden?</p>
+    <div class="options">
+      <label><input type="radio" name="i4" value="a"> Ort 1 → Ort 2 → Vergleich → Präferenz/Empfehlung</label>
+      <label><input type="radio" name="i4" value="b"> Ort 1 → dritter Ort → Familie → Vergleich</label>
+      <label><input type="radio" name="i4" value="c"> Empfehlung → neuer Ort → Wetter</label>
+      <label><input type="radio" name="i4" value="d"> beliebige Reihenfolge</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'a','Diese Reihenfolge hält den Text auf dieselben zwei Orte konzentriert.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Schreibe je eine Aktivität für Retiro und Bernabéu.</p>
+    <textarea></textarea>
+    <button class="secondary" onclick="showSolution(this,'Beispiel: En el Retiro se puede hacer un picnic. En el Bernabéu se puede ver un partido de fútbol.')">Lösung zeigen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Prüfe deinen Text mit den fünf Punkten: zwei Orte – Aktivitäten – Vergleich – Präferenz – Empfehlung.
+    <div class="small">Erfolgskriterium: Jeder Punkt ist im Text eindeutig zu finden.</div>
+  </div>
+</section>
+
+<section class="section" id="s8">
+  <h2>8. Inhalt: Präferenz oder Empfehlung?</h2>
+  <div class="rule"><strong>Präferenz</strong> = Was magst du lieber? <strong>Empfehlung</strong> = Was soll Álvaro deiner Meinung nach besuchen und warum?</div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>1.</strong> „Prefiero el Retiro porque es tranquilo.“ ist …</p>
+    <div class="options">
+      <label><input type="radio" name="r1" value="a"> eine Aktivität</label>
+      <label><input type="radio" name="r1" value="b"> eine Präferenz</label>
+      <label><input type="radio" name="r1" value="c"> eine Empfehlung</label>
+      <label><input type="radio" name="r1" value="d"> eine Begrüßung</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'b','„Prefiero“ zeigt deine persönliche Vorliebe.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>2.</strong> „Te recomiendo el Retiro porque podéis hacer un picnic allí.“ ist …</p>
+    <div class="options">
+      <label><input type="radio" name="r2" value="a"> eine Empfehlung</label>
+      <label><input type="radio" name="r2" value="b"> nur eine Beschreibung</label>
+      <label><input type="radio" name="r2" value="c"> nur eine Präferenz</label>
+      <label><input type="radio" name="r2" value="d"> eine Verabschiedung</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'a','Hier wird Álvaro direkt ein Ort empfohlen und die Empfehlung wird begründet.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>3.</strong> Welche Formulierung hilft Álvaro am meisten?</p>
+    <div class="options">
+      <label><input type="radio" name="r3" value="a"> Me gusta el fútbol.</label>
+      <label><input type="radio" name="r3" value="b"> El Retiro es grande.</label>
+      <label><input type="radio" name="r3" value="c"> Te recomiendo el Bernabéu porque podéis ver un partido allí.</label>
+      <label><input type="radio" name="r3" value="d"> Madrid es una ciudad.</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'c','Die Aussage nennt einen Ort, spricht Álvaro direkt an und gibt einen Grund.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>4.</strong> Ergänze eine Empfehlung nach deiner Präferenz:<br><em>Prefiero el Retiro porque es tranquilo. …</em></p>
+    <textarea></textarea>
+    <button class="secondary" onclick="showSolution(this,'Beispiel: Te recomiendo el Retiro porque podéis descansar y hacer un picnic allí.')">Lösung zeigen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="item exercise" data-exercise>
+    <p><strong>5.</strong> Welche Kombination ist vollständig?</p>
+    <div class="options">
+      <label><input type="radio" name="r5" value="a"> Präferenz ohne Grund</label>
+      <label><input type="radio" name="r5" value="b"> Empfehlung ohne Ort</label>
+      <label><input type="radio" name="r5" value="c"> Präferenz + begründete Empfehlung</label>
+      <label><input type="radio" name="r5" value="d"> Beschreibung ohne Entscheidung</label>
+    </div>
+    <button class="primary" onclick="checkRadio(this,'c','So wird klar, was du selbst bevorzugst und was du Álvaro rätst.')">Prüfen</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="transfer">
+    <strong>Jetzt zu deinem Text:</strong>
+    Unterstreiche deine Präferenz und kreise deine Empfehlung ein.
+    <div class="small">Erfolgskriterium: Beides ist vorhanden und die Empfehlung enthält einen nachvollziehbaren Grund.</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Abschluss: Berichtigung deines eigenen Textes</h2>
+  <p>Öffne jetzt deine eigene Arbeit und gehe die Punkte nacheinander durch.</p>
+  <div class="checklist">
+    <label><input type="checkbox"> Ich stelle zwei Orte vor.</label>
+    <label><input type="checkbox"> Ich nenne für beide Orte mindestens eine Aktivität.</label>
+    <label><input type="checkbox"> Ich vergleiche genau diese beiden Orte.</label>
+    <label><input type="checkbox"> Ich sage, welchen Ort ich bevorzuge.</label>
+    <label><input type="checkbox"> Ich gebe Álvaro eine Empfehlung.</label>
+    <label><input type="checkbox"> Ich begründe meine Präferenz oder Empfehlung.</label>
+    <label><input type="checkbox"> Meine Verben passen zum Subjekt.</label>
+    <label><input type="checkbox"> Nach <em>poder</em> steht ein Infinitiv.</label>
+    <label><input type="checkbox"> Artikel, Nomen und Adjektive passen zusammen.</label>
+    <label><input type="checkbox"> Meine Vergleichsstruktur ist vollständig.</label>
+  </div>
+
+  <div class="transfer">
+    <strong>Dein letzter Auftrag:</strong>
+    Verbessere mindestens drei Stellen in deinem eigenen Text. Markiere alles, bei dem du noch unsicher bist, und bringe diese Stellen mit in die Berichtigungsstunde.
+  </div>
+</section>
+
+<section class="solution-bank">
+  <h2>Lösungen – Druckversion</h2>
+  <p><strong>1 Verbformen:</strong> 1b; Me gusta el Retiro.; visitan; Álvaro visita dos lugares en Madrid.; 5b; El parque es tranquilo.</p>
+  <p><strong>2 poder:</strong> hacer; ver; Pueden ver un partido de fútbol.; Se puede jugar al fútbol.; puedes; 6b.</p>
+  <p><strong>3 Angleichung:</strong> 1b; bonita; interesantes; muchos lugares interesantes; una barca bonita; 6b.</p>
+  <p><strong>4 Vergleiche:</strong> más/que; tan/como; El Bernabéu es más interesante que el Rastro.; 4b; offene Aufgaben siehe Muster.</p>
+  <p><strong>5 Orthografie:</strong> estadio; interesante; fútbol; Rastro; famoso.</p>
+  <p><strong>6 Meinung:</strong> 1b; porque; Me gusta el estadio porque es grande.; 4c; offene Aufgabe nach Muster.</p>
+  <p><strong>7 Inhalt:</strong> 1b; 2b; 3b; 4a; offene Aufgabe nach Muster.</p>
+  <p><strong>8 Präferenz/Empfehlung:</strong> 1b; 2a; 3c; offene Aufgabe nach Muster; 5c.</p>
+</section>
+</main>
+
+<script>
+const exercises=[...document.querySelectorAll('[data-exercise]')];
+document.getElementById('totalCount').textContent=exercises.length;
+
+function norm(s){
+  return (s||'').trim().toLowerCase().replace(/\s+/g,' ');
+}
+function markDone(item){
+  if(!item.dataset.done){
+    item.dataset.done='1';
+    updateProgress();
+  }
+}
+function updateProgress(){
+  const done=exercises.filter(x=>x.dataset.done==='1').length;
+  document.getElementById('doneCount').textContent=done;
+  document.getElementById('progressFill').style.width=((done/exercises.length)*100)+'%';
+}
+function feedback(btn,msg,ok){
+  const box=btn.parentElement.querySelector('.feedback');
+  box.className='feedback '+(ok?'ok':'warn');
+  box.textContent=(ok?'Richtig. ':'Schau nochmal: ')+msg;
+  markDone(btn.closest('[data-exercise]'));
+}
+function checkRadio(btn,correct,reason){
+  const chosen=btn.parentElement.querySelector('input[type=radio]:checked');
+  if(!chosen){feedback(btn,'Wähle zuerst eine Antwort.',false);return}
+  feedback(btn,reason,chosen.value===correct);
+}
+function checkSelect(btn,reason){
+  const sel=btn.parentElement.querySelector('select');
+  feedback(btn,reason,norm(sel.value)===norm(sel.dataset.answer));
+}
+function checkMultiSelect(btn,answers,reason){
+  const expected=answers.split('|').map(norm);
+  const sels=[...btn.parentElement.querySelectorAll('select')];
+  const ok=sels.every((s,i)=>norm(s.value)===expected[i]);
+  feedback(btn,reason,ok);
+}
+function checkText(btn,reason){
+  const input=btn.parentElement.querySelector('input[type=text]');
+  const answers=(input.dataset.answer||'').split('|').map(norm);
+  const ok=answers.includes(norm(input.value));
+  feedback(btn,reason,ok);
+}
+function showSolution(btn,msg){
+  const box=btn.parentElement.querySelector('.feedback');
+  box.className='feedback info';
+  box.textContent=msg;
+  markDone(btn.closest('[data-exercise]'));
+}
+let dragged=null;
+document.addEventListener('dragstart',e=>{
+  if(e.target.classList.contains('drag-word')) dragged=e.target;
+});
+document.addEventListener('dragover',e=>{
+  if(e.target.closest('[data-dropzone]')) e.preventDefault();
+});
+document.addEventListener('drop',e=>{
+  const zone=e.target.closest('[data-dropzone]');
+  if(zone && dragged){e.preventDefault();zone.appendChild(dragged);dragged=null;}
+});
+function checkDrag(btn,reason){
+  const zone=btn.parentElement.querySelector('[data-dropzone]');
+  const sentence=[...zone.querySelectorAll('.drag-word')].map(x=>x.textContent.trim()).join(' ');
+  feedback(btn,reason,norm(sentence)===norm(zone.dataset.answer));
+}
+function resetDrag(btn){
+  const item=btn.parentElement;
+  const source=item.querySelector('[data-drag-source]');
+  const zone=item.querySelector('[data-dropzone]');
+  [...zone.querySelectorAll('.drag-word')].forEach(x=>source.appendChild(x));
+}
+</script>
+</body>
+</html>
